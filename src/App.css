@@ -47,3 +47,12 @@
   display: flex;
   flex: 3 3 6;
 }
+
+.date-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-card {
+  
+}
