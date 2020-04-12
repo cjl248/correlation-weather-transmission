@@ -20,8 +20,14 @@ export default class Main extends React.Component {
   }
 
   renderDateInfo = () => {
-    if (this.state.dates) {
-      console.log(Object.keys(this.state.dates))
+    const { dates } = this.state
+    if (dates) {
+      // console.log(dates)
+      const dateKeys = Object.keys(dates)
+      dateKeys.map((dateKey) => {
+        const curretStats = dates[dateKey]
+        console.log("curretStats: ", curretStats)
+      })
       // this.state.dates.values().map((date) => {
       //   console.log(date)
       // })
