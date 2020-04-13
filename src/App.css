@@ -40,19 +40,31 @@
   justify-content: flex-start;
   align-items: center;
   align-content: flex-start;
-  flex: 2 2 1;
+  flex: 2 2 auto;
 }
 
 .main {
   display: flex;
-  flex: 3 3 6;
+  flex-direction: column;
+  flex: 3 3 auto;
 }
 
 .date-card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-evenly + safe;
+  padding-right: 20px;
+  padding-left: 20px;
+
 }
 
 .date-card {
-  
+  font-size: calc(5px + 2vmin);
+  border: solid 2px #CFDCF5;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px;
+  flex: 1 1 auto;
 }

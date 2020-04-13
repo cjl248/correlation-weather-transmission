@@ -1,5 +1,6 @@
 import React from 'react';
 import DateCardContainer from './DateCardContainer.js'
+import DateCardDetails from '../components/DateCardDetails.js'
 
 var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
 
@@ -7,6 +8,7 @@ export default class Main extends React.Component {
 
   state = {
     dates: null,
+    activeCard: null,
   }
 
   cacheCurrentData = (data) => {
@@ -16,26 +18,12 @@ export default class Main extends React.Component {
         dates
       })
     }
-    // console.log("dates object: ", dates)
-    // console.log("4/07/20 data: ", dates["4/07/20"])
   }
-
-  // renderDateInfo = () => {
-  //   const { dates } = this.state
-  //   if (dates) {
-  //     const dateKeys = Object.keys(dates)
-  //     return dateKeys.map((dateKey) => {
-  //       const dateInfo = dates[dateKey]
-  //       console.log("dateInfo: ", dateInfo)
-  //       return (<DateCard dateInfo={dateInfo}></DateCard>)
-  //     })
-  //
-  //   }
-  // }
 
   render() {
     return (
       <div className={"main"}>
+        <DateCardDetails></DateCardDetails>
         <DateCardContainer dates={this.state.dates}></DateCardContainer>
       </div>
     )
