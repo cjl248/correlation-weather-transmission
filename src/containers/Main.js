@@ -1,5 +1,6 @@
 import React from 'react';
 import DateCardContainer from './DateCardContainer.js'
+import DateCardDetails from '../components/DateCardDetails.js'
 
 var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
 
@@ -7,6 +8,7 @@ export default class Main extends React.Component {
 
   state = {
     dates: null,
+    activeCard: null,
   }
 
   cacheCurrentData = (data) => {
@@ -21,6 +23,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className={"main"}>
+        <DateCardDetails></DateCardDetails>
         <DateCardContainer dates={this.state.dates}></DateCardContainer>
       </div>
     )
