@@ -7,9 +7,9 @@ export default class DateCardContainer extends React.Component {
     const { dates } = this.props
     if (dates) {
       const dateKeys = Object.keys(dates)
+      dateKeys.pop()
       return dateKeys.map((dateKey) => {
         const dateInfo = dates[dateKey]
-        // console.log("dateInfo: ", dateInfo)
         return ( <DateCard key={dateKey} date={dateKey} dateInfo={dateInfo}></DateCard> )
       })
     }

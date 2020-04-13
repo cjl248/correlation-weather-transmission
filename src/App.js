@@ -10,7 +10,7 @@ function App() {
       <HeaderBar></HeaderBar>
       <Main></Main>
     </div>
-  );
+  )
 }
 
 export default App;
