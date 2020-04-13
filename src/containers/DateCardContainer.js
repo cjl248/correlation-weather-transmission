@@ -4,13 +4,18 @@ import DateCard from '../components/DateCard.js'
 export default class DateCardContainer extends React.Component {
 
   renderDateInfo = () => {
-    const { dates } = this.props
-    if (dates) {
-      const dateKeys = Object.keys(dates)
+    const { caseInfo, setActiveDateCard } = this.props
+    if (caseInfo) {
+      const dateKeys = Object.keys(caseInfo)
       dateKeys.pop()
       return dateKeys.map((dateKey) => {
-        const dateInfo = dates[dateKey]
-        return ( <DateCard key={dateKey} date={dateKey} dateInfo={dateInfo}></DateCard> )
+        const dateInfo = caseInfo[dateKey]
+        return ( <DateCard
+                    key={dateKey}
+                    date={dateKey}
+                    dateInfo={dateInfo}
+                    setActiveDateCard={setActiveDateCard}>
+                  </DateCard> )
       })
     }
   }

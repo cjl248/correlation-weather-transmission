@@ -47,6 +47,8 @@
   display: flex;
   flex-direction: column;
   flex: 3 3 auto;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .date-card-container {
@@ -55,9 +57,6 @@
   flex-wrap: wrap;
   justify-content: center;
   justify-content: space-evenly + safe;
-  padding-right: 20px;
-  padding-left: 20px;
-
 }
 
 .date-card {
@@ -67,4 +66,13 @@
   padding: 10px;
   margin: 15px;
   flex: 1 1 auto;
+}
+
+.card-details {
+  border: solid 2px #CFDCF5;
+  border-radius: 10px;
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

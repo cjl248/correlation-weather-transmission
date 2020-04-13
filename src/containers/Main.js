@@ -7,15 +7,22 @@ var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
 export default class Main extends React.Component {
 
   state = {
-    dates: null,
+    caseInfo: null,
     activeCard: null,
   }
 
+  setActiveDateCard = (date, info) => {
+    const activeCard = [date, info]
+    this.setState({
+      activeCard
+    })
+  }
+
   cacheCurrentData = (data) => {
-    if (this.state.dates == null) {
-      const dates = data.timelineitems[0]
+    if (this.state.caseInfo == null) {
+      const caseInfo = data.timelineitems[0]
       this.setState({
-        dates
+        caseInfo
       })
     }
   }
@@ -23,8 +30,13 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className={"main"}>
-        <DateCardDetails></DateCardDetails>
-        <DateCardContainer dates={this.state.dates}></DateCardContainer>
+        <DateCardDetails
+          card={this.state.activeCard}>
+        </DateCardDetails>
+        <DateCardContainer
+            caseInfo={this.state.caseInfo}
+            setActiveDateCard={this.setActiveDateCard}>
+        </DateCardContainer>
       </div>
     )
   }
