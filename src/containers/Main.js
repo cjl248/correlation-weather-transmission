@@ -2,29 +2,45 @@ import React from 'react';
 import DateCardContainer from './DateCardContainer.js'
 import DateCardDetails from '../components/DateCardDetails.js'
 
-var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
+// var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
+
+var unitedStatesEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations/225"
+
+// var newYorkEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=nyt&timelines=true&province=New%20York"
 
 export default class Main extends React.Component {
 
   state = {
-    dates: null,
+    caseInfo: null,
     activeCard: null,
   }
 
   cacheCurrentData = (data) => {
-    if (this.state.dates == null) {
-      const dates = data.timelineitems[0]
+    if (this.state.caseInfo == null) {
+      const caseInfo = data.location.timelines
       this.setState({
-        dates
+        caseInfo
       })
     }
+  }
+
+  setActiveDateCard = (date, confirmed, deaths) => {
+    const activeCard = [date, confirmed, deaths]
+    this.setState({
+      activeCard
+    })
   }
 
   render() {
     return (
       <div className={"main"}>
-        <DateCardDetails></DateCardDetails>
-        <DateCardContainer dates={this.state.dates}></DateCardContainer>
+        <DateCardDetails
+          card={this.state.activeCard}>
+        </DateCardDetails>
+        <DateCardContainer
+          caseInfo={this.state.caseInfo}
+          setActiveDateCard={this.setActiveDateCard}>
+        </DateCardContainer>
       </div>
     )
   }
@@ -34,7 +50,7 @@ export default class Main extends React.Component {
       method: 'GET',
       redirect: 'follow',
     }
-    fetch(endPoint, config)
+    fetch(unitedStatesEndpoint, config)
       .then(response => response.json())
       .then(this.cacheCurrentData)
       .catch(error => console.log("error: ", error))
