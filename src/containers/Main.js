@@ -2,7 +2,11 @@ import React from 'react';
 import DateCardContainer from './DateCardContainer.js'
 import DateCardDetails from '../components/DateCardDetails.js'
 
-var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
+// var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
+
+var unitedStatesEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations/225"
+
+// var newYorkEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=nyt&timelines=true&province=New%20York"
 
 export default class Main extends React.Component {
 
@@ -11,20 +15,20 @@ export default class Main extends React.Component {
     activeCard: null,
   }
 
-  setActiveDateCard = (date, info) => {
-    const activeCard = [date, info]
-    this.setState({
-      activeCard
-    })
-  }
-
   cacheCurrentData = (data) => {
     if (this.state.caseInfo == null) {
-      const caseInfo = data.timelineitems[0]
+      const caseInfo = data.location.timelines
       this.setState({
         caseInfo
       })
     }
+  }
+
+  setActiveDateCard = (date, confirmed, deaths) => {
+    const activeCard = [date, confirmed, deaths]
+    this.setState({
+      activeCard
+    })
   }
 
   render() {
@@ -34,8 +38,8 @@ export default class Main extends React.Component {
           card={this.state.activeCard}>
         </DateCardDetails>
         <DateCardContainer
-            caseInfo={this.state.caseInfo}
-            setActiveDateCard={this.setActiveDateCard}>
+          caseInfo={this.state.caseInfo}
+          setActiveDateCard={this.setActiveDateCard}>
         </DateCardContainer>
       </div>
     )
@@ -46,7 +50,7 @@ export default class Main extends React.Component {
       method: 'GET',
       redirect: 'follow',
     }
-    fetch(endPoint, config)
+    fetch(unitedStatesEndpoint, config)
       .then(response => response.json())
       .then(this.cacheCurrentData)
       .catch(error => console.log("error: ", error))

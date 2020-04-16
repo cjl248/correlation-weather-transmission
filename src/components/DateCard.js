@@ -3,12 +3,12 @@ import React from 'react'
 export default class DateCard extends React.Component {
 
   render() {
-    const { date, dateInfo, setActiveDateCard } = this.props
+    const { date, confirmed, deaths, setActiveDateCard } = this.props
     return (
-      <div className={"date-card"} onClick={() => {setActiveDateCard(date, dateInfo)}}>
+      <div className={"date-card"} onClick={() => {setActiveDateCard(date, confirmed, deaths)}}>
         <h2>{date}</h2>
-        <p>{`New Cases: ${dateInfo.new_daily_cases}`}</p>
-        <p>{`New Deaths: ${dateInfo.new_daily_deaths}`}</p>
+        <p>{`New Cases: ${confirmed}`}</p>
+        <p>{`New Deaths: ${deaths}`}</p>
       </div>
     )
   }

@@ -6,14 +6,17 @@ export default class DateCardContainer extends React.Component {
   renderDateInfo = () => {
     const { caseInfo, setActiveDateCard } = this.props
     if (caseInfo) {
-      const dateKeys = Object.keys(caseInfo)
-      dateKeys.pop()
+      const confirmedCases = caseInfo.confirmed
+      const deathCases = caseInfo.deaths
+      const dateKeys = Object.keys(confirmedCases.timeline)
       return dateKeys.map((dateKey) => {
-        const dateInfo = caseInfo[dateKey]
+        const confirmed = confirmedCases.timeline[dateKey]
+        const deaths = deathCases.timeline[dateKey]
         return ( <DateCard
                     key={dateKey}
                     date={dateKey}
-                    dateInfo={dateInfo}
+                    confirmed={confirmed}
+                    deaths={deaths}
                     setActiveDateCard={setActiveDateCard}>
                   </DateCard> )
       })
