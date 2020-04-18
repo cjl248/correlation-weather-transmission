@@ -7,8 +7,9 @@ export default class extends React.Component {
       return (
         <>
           <h2>{`Date: ${this.props.card[0]}`}</h2>
-          <p>{`New Daily Cases: ${this.props.card[1].new_daily_cases}`}</p>
-        </>
+          <p>{`New Daily Cases: ${this.props.card[1]}`}</p>
+          <p>{`New Daily Deaths: ${this.props.card[2]}`}</p>
+        </> 
       )
     } else {
       return (<h2>{"CLICK A CARD TO SHOW DETAILS"}</h2>)

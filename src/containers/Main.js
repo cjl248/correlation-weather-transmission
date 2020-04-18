@@ -4,22 +4,22 @@ import DateCardDetails from '../components/DateCardDetails.js'
 
 // var endPoint = "https://api.thevirustracker.com/free-api?countryTimeline=US"
 
-var unitedStatesEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations/225"
+var unitedStatesEndpoint = "http://localhost:3000/days"
 
 // var newYorkEndpoint = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=nyt&timelines=true&province=New%20York"
 
 export default class Main extends React.Component {
 
   state = {
-    caseInfo: null,
+    dateInfo: null,
     activeCard: null,
   }
 
   cacheCurrentData = (data) => {
-    if (this.state.caseInfo == null) {
-      const caseInfo = data.location.timelines
+    if (this.state.dateInfo == null) {
+      const dateInfo = data
       this.setState({
-        caseInfo
+        dateInfo
       })
     }
   }
@@ -38,7 +38,7 @@ export default class Main extends React.Component {
           card={this.state.activeCard}>
         </DateCardDetails>
         <DateCardContainer
-          caseInfo={this.state.caseInfo}
+          dateInfo={this.state.dateInfo}
           setActiveDateCard={this.setActiveDateCard}>
         </DateCardContainer>
       </div>

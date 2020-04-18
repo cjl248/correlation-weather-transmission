@@ -2,13 +2,19 @@ import React from 'react'
 
 export default class DateCard extends React.Component {
 
+  formatDate = () => {
+    const fullDate = this.props.date
+    const dateArray = fullDate.split("T")
+    return dateArray[0]
+  }
+
   render() {
-    const { date, confirmed, deaths, setActiveDateCard } = this.props
+    const {newCases, newDeaths, setActiveDateCard } = this.props
     return (
-      <div className={"date-card"} onClick={() => {setActiveDateCard(date, confirmed, deaths)}}>
-        <h2>{date}</h2>
-        <p>{`New Cases: ${confirmed}`}</p>
-        <p>{`New Deaths: ${deaths}`}</p>
+      <div className={"date-card"} onClick={() => {setActiveDateCard(this.formatDate(), newCases, newDeaths)}}>
+        <h2>{this.formatDate()}</h2>
+        <p>{`New Cases: ${newCases}`}</p>
+        <p>{`New Deaths: ${newDeaths}`}</p>
       </div>
     )
   }
