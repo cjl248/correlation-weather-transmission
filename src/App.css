@@ -69,10 +69,27 @@
 }
 
 .card-details {
+  font-size: calc(8px + 2vmin);
   border: solid 2px #CFDCF5;
   border-radius: 10px;
   margin: 15px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+}
+
+@media (min-width: 800px) {
+  .card-details {
+    font-size: calc(8px + 2vmin);
+    border: solid 2px #CFDCF5;
+    border-radius: 10px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.card-details > p, h2 {
+  margin: .5rem;
 }
