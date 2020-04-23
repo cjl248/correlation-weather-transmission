@@ -24,8 +24,8 @@ export default class Main extends React.Component {
     }
   }
 
-  setActiveDateCard = (date, confirmed, deaths) => {
-    const activeCard = [date, confirmed, deaths]
+  setActiveDateCard = (date, newCases, newDeaths, totalCases) => {
+    const activeCard = [date, newCases, newDeaths, totalCases]
     this.setState({
       activeCard
     })

@@ -9,7 +9,7 @@ export default class extends React.Component {
           <p>{`Date: ${this.props.card[0]}`}</p>
           <p>{`New Daily Cases: ${this.props.card[1]}`}</p>
           <p>{`New Daily Deaths: ${this.props.card[2]}`}</p>
-          <p>{`Total Daily Cases: ${null}`}</p>
+          <p>{`Total Daily Cases: ${this.props.card[3]}`}</p>
           <p>{`Total Daily Deaths: ${null}`}</p>
         </>
       )
