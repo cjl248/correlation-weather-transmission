@@ -9,9 +9,9 @@ export default class DateCard extends React.Component {
   }
 
   render() {
-    const {newCases, newDeaths, setActiveDateCard } = this.props
+    const {newCases, totalCases, newDeaths, setActiveDateCard } = this.props
     return (
-      <div className={"date-card"} onClick={() => {setActiveDateCard(this.formatDate(), newCases, newDeaths)}}>
+      <div className={"date-card"} onClick={() => {setActiveDateCard(this.formatDate(), newCases, newDeaths, totalCases)}}>
         <h2>{this.formatDate()}</h2>
         <p>{`New Cases: ${newCases}`}</p>
         <p>{`New Deaths: ${newDeaths}`}</p>
