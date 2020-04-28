@@ -8,8 +8,10 @@ export default class DateCardContainer extends React.Component {
     const { dateInfo, setActiveDateCard } = this.props
     if (dateInfo) {
       let totalCases = 0
+      let totalDeaths = 0
       return dateInfo.map((date) => {
         totalCases += date.new_cases
+        totalDeaths += date.new_deaths
         const currentDate = date.date
         const newCases = date.new_cases
         const newDeaths = date.new_deaths
@@ -19,6 +21,7 @@ export default class DateCardContainer extends React.Component {
             date={currentDate}
             newCases={newCases}
             totalCases={totalCases}
+            totalDeaths={totalDeaths}
             newDeaths={newDeaths}
             setActiveDateCard={setActiveDateCard}>
           </DateCard>
