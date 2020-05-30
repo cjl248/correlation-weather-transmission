@@ -17,12 +17,6 @@ export default class DateCard extends React.Component {
     })
   }
 
-
-  // NEED TO PULL CHANGES FROM BRANCH THAT HAD FIXED THE NEW/TOTAL CASE/DEATH
-  // COUNT. ONLY MERGED INTO MASTER BUT NOT INTO THIS BRANCH. NEED TO MERGE
-  // CHANGES IN 'DateCardContainer' INTO THIS BRANCH SO THAT DATA IN PROPS GETS
-  // PASSED TO 'DateCard'. THEN 'handleClick' CAN USE 'setActiveDateCard' AND
-  // 'toTop' AS EXPECTED
   handleClick = () => {
     const {
       newCases,
