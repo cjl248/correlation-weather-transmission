@@ -7,23 +7,26 @@ export default class DateCardContainer extends React.Component {
   renderDateInfo = () => {
     const { dateInfo, setActiveDateCard } = this.props
     if (dateInfo) {
-      return dateInfo.map((date, index, array) => {
+      return dateInfo.map((date, array) => {
         const currentDate = date.date
-        const totalCases = date.total_cases
+        const newTests = date.new_tests
+        const newPositives = date.new_positives
+        const totalPositives = date.total_positives
+        const newHospitalizations = date.new_hospitalizations
+        const totalHospitalizations = date.total_hospitalizations
+        const newDeaths = date.new_deaths
         const totalDeaths = date.total_deaths
-        let newCases = 0
-        let newDeaths = 0
-        if (index > 0) {
-          newCases = totalCases - array[index-1].total_cases
-          newDeaths = totalDeaths - array[index-1].total_deaths
-        }
+
         return (
           <DateCard
             key={uuidv4()}
             date={currentDate}
-            newCases={newCases}
+            newTests={newTests}
+            newPositives={newPositives}
+            totalPositives={totalPositives}
+            newHospitalizations={newHospitalizations}
+            totalHospitalizations={totalHospitalizations}
             newDeaths={newDeaths}
-            totalCases={totalCases}
             totalDeaths={totalDeaths}
             setActiveDateCard={setActiveDateCard}>
           </DateCard>

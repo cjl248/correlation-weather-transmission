@@ -6,7 +6,7 @@ export default class HeaderBar extends React.Component {
     return (
       <div className={"header-bar"}>
         <h1>{"SARS-CoV-2 Transmission & Weather"}</h1>
-        <h3>{`New York City`}</h3>
+        <h2>{`New York State`}</h2>
       </div>
     )
   }

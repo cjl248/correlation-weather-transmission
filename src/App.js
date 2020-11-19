@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import HeaderBar from './components/HeaderBar.js'
 import Main from './containers/Main.js'
 import './App.css';
 
-function App() {
+export default function App() {
+
   return (
     <div className="App">
       <HeaderBar></HeaderBar>
@@ -12,5 +12,3 @@ function App() {
     </div>
   )
 }
-
-export default App;

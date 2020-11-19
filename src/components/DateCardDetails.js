@@ -6,11 +6,11 @@ export default class extends React.Component {
     if (this.props.card) {
       return (
         <>
-          <p>{`Date: ${this.props.card[0]}`}</p>
-          <p>{`New Cases: ${this.props.card[1]}`}</p>
-          <p>{`New Deaths: ${this.props.card[2]}`}</p>
-          <p>{`Total Cases: ${this.props.card[3]}`}</p>
-          <p>{`Total Deaths: ${this.props.card[4]}`}</p>
+          <p>{`Date: ${this.props.card.date}`}</p>
+          <p>{`New Cases: ${this.props.card.newPositives}`}</p>
+          <p>{`New Deaths: ${this.props.card.newDeaths}`}</p>
+          <p>{`Total Cases: ${this.props.card.totalPositives}`}</p>
+          <p>{`Total Deaths: ${this.props.card.totalDeaths}`}</p>
         </>
       )
     } else {
