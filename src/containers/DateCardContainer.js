@@ -2,9 +2,6 @@ import React from 'react'
 import DateCard from '../components/DateCard.js'
 import { v4 as uuidv4 } from 'uuid'
 
-// import bootstrap components
-import Card from 'react-bootstrap/Card'
-
 export default class DateCardContainer extends React.Component {
 
   renderDateInfo = () => {

@@ -1,12 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
-$background-color: #212E47;
-$font-color: #CFDCF5;
+$dark-blue: #017BFE;
+$light-blue: #017BFE;
+
 
 
 // ---- APP ---- //
 
 .App {
-  background-color: $background-color;
+  background-color: #f8f9fa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,13 +15,16 @@ $font-color: #CFDCF5;
   align-items: center;
   text-align: center;
   font-size: calc(10px + 2vmin);
-  color: $font-color;
   padding: 1.5rem .25rem;
+  h1, h2 {
+    color: #017BFE;
+  }
 }
 
 // ---- HEADER BAR ---- //
 
 .header-bar {
+  color: #017BFE;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -52,52 +56,92 @@ $font-color: #CFDCF5;
 // ---- DATE CARD ---- //
 
 .date-card {
-  font-size: calc(5px + 2vmin);
-  border: solid 2px $font-color;
+//   min-width: auto;
+//   min-height: auto;
+//   width: 35vmin;
+//   height: 40vmin;
+//   background-color: $dark-blue;
+  color: #007bff;
+//   font-size: calc(5px + 2vmin);
+//   border: solid 2px $light-blue;
   border-radius: 10px;
-  padding: 10px;
-  margin: 15px;
-  flex: 1 1 auto;
+//   padding: 5px;
+  margin: 10px;
+//   flex: 1 1 auto;
+//   box-shadow: 0 0 6px 2px white;
+//   &:hover {
+//     box-shadow: 0 0 9px 3px white;
+//   }
 }
+//
+// .date-card-header  {
+//   background-color: $light-blue;
+//   border-radius: 5px;
+// }
+//
+// .date-card-nav {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   height: 7.5vmin;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+//   background-color: $light-blue;
+//   border-radius: 5px;
+// }
+//
+// .date-card-body {
+//   background-color: $light-blue;
+//   border-bottom-right-radius: 5px;
+//   border-bottom-left-radius: 5px;
+// }
 
 // ---- CARD DETAILS ---- //
 
-.card-details {
-  font-size: calc(8px + 2vmin);
-  border: solid 2px $font-color;
-  border-radius: 10px;
-  margin: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+// .card-details {
+//   font-size: calc(8px + 2vmin);
+//   border: solid 2px $light-blue;
+//   border-radius: 10px;
+//   margin: 15px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
 
 @media screen and (min-width: 600px) {
   .card-details {
+    color:#017BFE;
     font-size: calc(8px + 2vmin);
-    border: solid 2px $font-color;
+    border: solid 2px #017BFE;
     border-radius: 10px;
     margin: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    > p, h2 {
+    > p, h2 span {
+      color: #007bff;
       margin: .5rem;
     }
   }
 }
 
 @media screen and (orientation: portrait) and (max-width: 599px) {
-  font-size: calc(8px + 1vmin);
-  border: solid 2px $font-color;
-  border-radius: 10px;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  > p, h2 {
-    margin: .25rem;
+  .card-details {
+    color:#017BFE;
+    font-size: calc(8px + 1vmin);
+    border: solid 2px #017BFE;
+    border-radius: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > p, h2 span {
+      color: #007bff;
+      margin: .25rem;
+    }
   }
 }

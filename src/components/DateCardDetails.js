@@ -1,5 +1,8 @@
 import React from 'react';
 
+// import bootstrap components
+import Card from 'react-bootstrap/Card'
+
 export default class extends React.Component {
 
   renderDetails = () => {
@@ -25,7 +28,6 @@ export default class extends React.Component {
         {this.renderDetails()}
       </div>
     )
-
   }
 
 }
