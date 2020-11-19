@@ -7,9 +7,10 @@ export default class extends React.Component {
       return (
         <>
           <p>{`Date: ${this.props.card.date}`}</p>
+          <p>{`New Tests: ${this.props.card.newTests}`}</p>
           <p>{`New Cases: ${this.props.card.newPositives}`}</p>
-          <p>{`New Deaths: ${this.props.card.newDeaths}`}</p>
           <p>{`Total Cases: ${this.props.card.totalPositives}`}</p>
+          <p>{`New Deaths: ${this.props.card.newDeaths}`}</p>
           <p>{`Total Deaths: ${this.props.card.totalDeaths}`}</p>
         </>
       )

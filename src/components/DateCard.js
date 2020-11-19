@@ -4,7 +4,8 @@ export default class DateCard extends React.Component {
 
 
   formatDate = () => {
-    const rawDate = this.props.date
+    if (!this.props.dateInfo.currentDate) return
+    const rawDate = this.props.dateInfo.currentDate
     const year = rawDate.slice(0, 4)
     const month = rawDate.slice(4, -2)
     const date = rawDate.slice(-2)
@@ -25,13 +26,10 @@ export default class DateCard extends React.Component {
       newTests,
       newPositives,
       totalPositives,
-      newHospitalizations,
-      totalHospitalizations,
       newDeaths,
       totalDeaths,
-      setActiveDateCard
-    } = this.props
-    setActiveDateCard(this.formatDate(), newPositives, newTests, totalPositives, newDeaths, totalDeaths, newHospitalizations, totalHospitalizations)
+    } = this.props.dateInfo
+    this.props.setActiveDateCard(this.formatDate(), newPositives, newTests, totalPositives, newDeaths, totalDeaths)
     this.toTop()
   }
 
@@ -40,19 +38,15 @@ export default class DateCard extends React.Component {
       newTests,
       newPositives,
       totalPositives,
-      newHospitalizations,
-      totalHospitalizations,
       newDeaths,
       totalDeaths,
-    } = this.props
+    } = this.props.dateInfo
     return (
       <div className={"date-card"} onClick={this.handleClick}>
         <h2>{`Date: ${this.formatDate()}`}</h2>
         <p>{`New  Tests: ${newTests}`}</p>
         <p>{`New Cases: ${newPositives}`}</p>
         <p>{`Total Cases: ${totalPositives}`}</p>
-        <p>{`New Hospitalizations: ${newHospitalizations}`}</p>
-        <p>{`Total Hospitalizations: ${totalHospitalizations}`}</p>
         <p>{`New Deaths: ${newDeaths}`}</p>
         <p>{`Total Deaths: ${totalDeaths}`}</p>
       </div>
