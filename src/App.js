@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderBar from './components/HeaderBar.js'
 import Main from './containers/Main.js'
-import './App.css';
+import './App.scss';
 
 export default function App() {
 
