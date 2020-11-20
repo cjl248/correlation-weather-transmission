@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class HeaderBar extends React.Component {
+export default class HeaderContainer extends React.Component {
 
   render() {
     return (

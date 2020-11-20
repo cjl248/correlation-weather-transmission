@@ -1,97 +1,135 @@
 @import "~bootstrap/scss/bootstrap";
 
+$font-blue: #017BFE;
+
+
+
+// ---- APP ---- //
+
 .App {
-  background-color: #212E47;
+  background-color: #e5f2ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  font-size: calc(10px + 2vmin);
-  color: #CFDCF5;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  padding: 1.5rem .25rem;
+  h1, h2 {
+    color: $font-blue;
   }
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// ---- HEADER CONTAINER ---- //
 
 .header-bar {
+  color: $font-blue;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   align-content: flex-start;
-  flex: 2 2 auto;
 }
 
-.main {
+// ---- MAIN DATE CONTAINER ---- //
+
+.date-container {
   display: flex;
+  margin: 2.5px;
   flex-direction: column;
-  flex: 3 3 auto;
+  justify-content: center;
+  align-items: center;
   padding-right: 20px;
   padding-left: 20px;
 }
 
-.date-card-container {
+// ---- CARD NAV ---- //
+
+@media screen and (min-width: 600px) {
+  .card-nav {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:$font-blue;
+    font-size: calc(8px + 3vmin);
+    font-weight: 600;
+    border-top: solid 2px $font-blue;
+    border-bottom: solid 2px $font-blue;
+    margin: 10px 2.5px;
+    > p, h2 span {
+      color: $font-blue;
+      margin: .5rem;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) and (max-width: 599px) {
+  .card-nav {
+    color:$font-blue;
+    font-size: calc(8px + 1vmin);
+    border: solid 2px $font-blue;
+    border-radius: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > p, h2 span {
+      color: $font-blue;
+      margin: .25rem;
+    }
+  }
+}
+
+.date-nav {
+  display: flex;
+  flex: 1 1 auto ;
+}
+
+.choice-dropdown {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.case-filter {
+  display: flex;
+}
+
+.drop-down-choice {
+  font-size: calc(20px + 2vmin);
+}
+
+
+// ---- DATE CARDS ---- //
+
+.date-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  justify-content: space-evenly + safe;
-}
-
-.date-card {
-  font-size: calc(5px + 2vmin);
-  border: solid 2px #CFDCF5;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 15px;
-  flex: 1 1 auto;
-}
-
-.card-details {
   font-size: calc(8px + 2vmin);
-  border: solid 2px #CFDCF5;
+}
+
+// ---- DATE CARD ---- //
+
+.card {
+  height: 25vmin;
+  color: $font-blue;
   border-radius: 10px;
-  margin: 15px;
+  margin: 10px;
+  width: 35vmin;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.card-header {
+
+}
+
+.card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-@media (min-width: 800px) {
-  .card-details {
-    font-size: calc(8px + 2vmin);
-    border: solid 2px #CFDCF5;
-    border-radius: 10px;
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-.card-details > p, h2 {
-  margin: .5rem;
+  align-items: center;
 }
