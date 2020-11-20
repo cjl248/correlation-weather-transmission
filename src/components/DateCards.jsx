@@ -1,8 +1,8 @@
 import React from 'react'
-import DateCard from '../components/DateCard.js'
+import Card from './Card.jsx'
 import { v4 as uuidv4 } from 'uuid'
 
-export default class DateCardContainer extends React.Component {
+export default class DateCards extends React.Component {
 
   renderDateInfo = () => {
     const { dateInfo, setActiveDateCard } = this.props
@@ -25,11 +25,11 @@ export default class DateCardContainer extends React.Component {
         }
 
         return (
-          <DateCard
+          <Card
             key={uuidv4()}
             dateInfo={dateInfo}
             setActiveDateCard={setActiveDateCard}>
-          </DateCard>
+          </Card>
         )
       })
     }
@@ -37,7 +37,7 @@ export default class DateCardContainer extends React.Component {
 
   render() {
     return (
-      <div className={"date-card-container"}>
+      <div className={"date-cards"}>
         {this.renderDateInfo()}
       </div>
     )

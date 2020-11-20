@@ -6,6 +6,10 @@ import Nav from 'react-bootstrap/Nav'
 
 export default class DateCard extends React.Component {
 
+  state = {
+    activeTab: "#tests",
+  }
+
 
   formatDate = () => {
     if (!this.props.dateInfo.currentDate) return
@@ -17,15 +21,13 @@ export default class DateCard extends React.Component {
     return fullDate
   }
 
-  toTop = () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
+  handleSelect = (eventKey) => {
+    this.setState({
+      activeTab: eventKey.toString()
     })
   }
 
-  handleClick = () => {
+  renderInfo = () => {
     const {
       newTests,
       newPositives,
@@ -33,35 +35,60 @@ export default class DateCard extends React.Component {
       newDeaths,
       totalDeaths,
     } = this.props.dateInfo
-    this.props.setActiveDateCard(this.formatDate(), newPositives, newTests, totalPositives, newDeaths, totalDeaths)
-    this.toTop()
+    if (this.state.activeTab === "#tests") {
+      return (
+        <span>{`New Tests: ${newTests}`}</span>
+      )
+    } else if (this.state.activeTab === "#cases") {
+      return (
+        <>
+          <span>{`New Cases: ${newPositives}`}</span>
+          <span>{`Total Cases: ${totalPositives}`}</span>
+        </>
+      )
+    } else if (this.state.activeTab === "#deaths") {
+      return (
+        <>
+          <span>{`New Deaths: ${newDeaths}`}</span>
+          <span>{`Total Deaths:${totalDeaths}`}</span>
+        </>
+      )
+    }
   }
 
   render() {
-    const {
-      newTests,
-      newPositives,
-      totalPositives,
-      newDeaths,
-      totalDeaths,
-    } = this.props.dateInfo
+
     return (
-      <Card bg="light" border="primary" className="date-card">
+      <Card bg="light" border="primary" className="#date-card">
         <Card.Header className="date-card-header">
-          <Nav variant='pills' defaultActiveKey="#tests">
+          <Nav
+            fill
+            onSelect={this.handleSelect}
+            variant='pills'
+            defaultActiveKey="#tests">
             <Nav.Item>
-              <Nav.Link href="#tests">{`Tests`}</Nav.Link>
+              <Nav.Link
+                href="#tests">
+                {`Tests`}
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#cases">{`Cases`}</Nav.Link>
+              <Nav.Link
+                href="#cases">
+                {`Cases`}
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#deaths">{`Deaths`}</Nav.Link>
+              <Nav.Link
+                href="#deaths">
+                {`Deaths`}
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Card.Header>
         <Card.Body className="date-card-body">
-          <span>{`Date: ${this.formatDate()}`}</span>
+          <div>{`Date: ${this.formatDate()}`}</div>
+          {this.renderInfo()}
         </Card.Body>
       </Card>
     )

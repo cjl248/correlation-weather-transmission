@@ -1,14 +1,30 @@
 import React from 'react';
-import HeaderBar from './components/HeaderBar.js'
-import Main from './containers/Main.js'
+import HeaderContainer from './containers/HeaderContainer.jsx'
+import MainDateContainer from './containers/MainDateContainer.jsx'
+import MainGraphContainer from './containers/MainGraphContainer.jsx'
 import './App.scss';
 
-export default function App() {
+export default class App extends React.Component {
 
-  return (
-    <div className="App">
-      <HeaderBar></HeaderBar>
-      <Main></Main>
-    </div>
-  )
+  state = {
+    activePage: 'dates'
+  }
+
+  renderMain = () => {
+    if (this.state.activePage === 'dates') {
+      return (<MainDateContainer></MainDateContainer>)
+    }
+    if (this.state.activePage === 'graphs') {
+      return (<MainGraphContainer></MainGraphContainer>)
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <HeaderContainer></HeaderContainer>
+        {this.renderMain()}
+      </div>
+    )
+  }
 }

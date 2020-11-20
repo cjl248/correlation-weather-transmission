@@ -1,138 +1,75 @@
 @import "~bootstrap/scss/bootstrap";
-$dark-blue: #017BFE;
-$light-blue: #017BFE;
+
+$font-blue: #017BFE;
 
 
 
 // ---- APP ---- //
 
 .App {
-  background-color: #f8f9fa;
+  background-color: #e5f2ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  font-size: calc(10px + 2vmin);
   padding: 1.5rem .25rem;
   h1, h2 {
-    color: #017BFE;
+    color: $font-blue;
   }
 }
 
-// ---- HEADER BAR ---- //
+// ---- HEADER CONTAINER ---- //
 
 .header-bar {
-  color: #017BFE;
+  color: $font-blue;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   align-content: flex-start;
-  flex: 2 2 auto;
 }
 
-// ---- MAIN ---- //
+// ---- MAIN DATE CONTAINER ---- //
 
-.main {
+.date-container {
   display: flex;
+  margin: 2.5px;
   flex-direction: column;
-  flex: 3 3 auto;
+  justify-content: center;
+  align-items: center;
   padding-right: 20px;
   padding-left: 20px;
 }
 
-// ---- DATE CARD CONTAINER ---- //
-
-.date-card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-evenly + safe;
-}
-
-// ---- DATE CARD ---- //
-
-.date-card {
-//   min-width: auto;
-//   min-height: auto;
-//   width: 35vmin;
-//   height: 40vmin;
-//   background-color: $dark-blue;
-  color: #007bff;
-//   font-size: calc(5px + 2vmin);
-//   border: solid 2px $light-blue;
-  border-radius: 10px;
-//   padding: 5px;
-  margin: 10px;
-//   flex: 1 1 auto;
-//   box-shadow: 0 0 6px 2px white;
-//   &:hover {
-//     box-shadow: 0 0 9px 3px white;
-//   }
-}
-//
-// .date-card-header  {
-//   background-color: $light-blue;
-//   border-radius: 5px;
-// }
-//
-// .date-card-nav {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   height: 7.5vmin;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-evenly;
-//   background-color: $light-blue;
-//   border-radius: 5px;
-// }
-//
-// .date-card-body {
-//   background-color: $light-blue;
-//   border-bottom-right-radius: 5px;
-//   border-bottom-left-radius: 5px;
-// }
-
-// ---- CARD DETAILS ---- //
-
-// .card-details {
-//   font-size: calc(8px + 2vmin);
-//   border: solid 2px $light-blue;
-//   border-radius: 10px;
-//   margin: 15px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }
+// ---- CARD NAV ---- //
 
 @media screen and (min-width: 600px) {
-  .card-details {
-    color:#017BFE;
-    font-size: calc(8px + 2vmin);
-    border: solid 2px #017BFE;
-    border-radius: 10px;
-    margin: 15px;
+  .card-nav {
+    width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    color:$font-blue;
+    font-size: calc(8px + 3vmin);
+    font-weight: 600;
+    border-top: solid 2px $font-blue;
+    border-bottom: solid 2px $font-blue;
+    margin: 10px 2.5px;
     > p, h2 span {
-      color: #007bff;
+      color: $font-blue;
       margin: .5rem;
     }
   }
 }
 
 @media screen and (orientation: portrait) and (max-width: 599px) {
-  .card-details {
-    color:#017BFE;
+  .card-nav {
+    color:$font-blue;
     font-size: calc(8px + 1vmin);
-    border: solid 2px #017BFE;
+    border: solid 2px $font-blue;
     border-radius: 10px;
     margin: 5px;
     display: flex;
@@ -140,8 +77,59 @@ $light-blue: #017BFE;
     justify-content: center;
     align-items: center;
     > p, h2 span {
-      color: #007bff;
+      color: $font-blue;
       margin: .25rem;
     }
   }
+}
+
+.date-nav {
+  display: flex;
+  flex: 1 1 auto ;
+}
+
+.choice-dropdown {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.case-filter {
+  display: flex;
+}
+
+.drop-down-choice {
+  font-size: calc(20px + 2vmin);
+}
+
+
+// ---- DATE CARDS ---- //
+
+.date-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: calc(8px + 2vmin);
+}
+
+// ---- DATE CARD ---- //
+
+.card {
+  height: 25vmin;
+  color: $font-blue;
+  border-radius: 10px;
+  margin: 10px;
+  width: 35vmin;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.card-header {
+
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

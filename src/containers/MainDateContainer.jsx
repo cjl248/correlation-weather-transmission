@@ -1,14 +1,13 @@
 import React from 'react';
-import DateCardContainer from './DateCardContainer.js'
-import DateCardDetails from '../components/DateCardDetails.js'
+import DateCards from '../components/DateCards.jsx'
+import DateCardNav from '../components/DateCardNav.jsx'
 
 var newYorkEndpoint = "http://localhost:3000/days"
 
-export default class Main extends React.Component {
+export default class MainDateContainer extends React.Component {
 
   state = {
     dateInfo: null,
-    activeCard: null,
     activeMonth: null,
     months: [
       "January",
@@ -35,31 +34,15 @@ export default class Main extends React.Component {
     }
   }
 
-  setActiveDateCard = (date, newTests, newPositives, totalPositives, newDeaths, totalDeaths) => {
-    const activeCard = {
-      date,
-      newTests,
-      newPositives,
-      totalPositives,
-      newDeaths,
-      totalDeaths,
-    }
-    this.setState({
-      activeCard
-    })
-
-  }
-
   render() {
     return (
-      <div className={"main"}>
-        <DateCardDetails
+      <div className={"date-container"}>
+        <DateCardNav
           card={this.state.activeCard}>
-        </DateCardDetails>
-        <DateCardContainer
-          dateInfo={this.state.dateInfo}
-          setActiveDateCard={this.setActiveDateCard}>
-        </DateCardContainer>
+        </DateCardNav>
+        <DateCards
+          dateInfo={this.state.dateInfo}>
+        </DateCards>
       </div>
     )
   }
