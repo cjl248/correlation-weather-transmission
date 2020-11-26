@@ -62,13 +62,18 @@ $font-blue: #017BFE;
       color: $font-blue;
       margin: .5rem;
     }
+    .filter-label {
+      padding: 0 15px 0 10px;
+    }
   }
 }
 
 @media screen and (orientation: portrait) and (max-width: 599px) {
   .card-nav {
+    width: 60vw;
+    min-width: 300px;
     color:$font-blue;
-    font-size: calc(8px + 1vmin);
+    font-size: calc(8px + 2vmin);
     border: solid 2px $font-blue;
     border-radius: 10px;
     margin: 5px;
@@ -80,17 +85,28 @@ $font-blue: #017BFE;
       color: $font-blue;
       margin: .25rem;
     }
+    .filter-label {
+      padding: 0 15px 0 10px;
+    }
   }
 }
+
 
 .date-nav {
   display: flex;
   flex: 1 1 auto ;
+  > div > div.show {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
 }
 
-.choice-dropdown {
-  display: flex;
-  flex: 1 1 auto;
+#month-dropdown {
+
+}
+
+#statistic-dropdown {
+
 }
 
 .case-filter {
@@ -98,7 +114,11 @@ $font-blue: #017BFE;
 }
 
 .drop-down-choice {
-  font-size: calc(20px + 2vmin);
+  font-size: calc(14px + 1.5vmin);
+}
+
+.drop-down-month {
+  font-size: calc(14px + 1.5vmin);
 }
 
 
@@ -120,6 +140,8 @@ $font-blue: #017BFE;
   border-radius: 10px;
   margin: 10px;
   width: 35vmin;
+  min-width: 300px;
+  min-height: 200px;
   font-size: 14px;
   font-weight: 800;
 }

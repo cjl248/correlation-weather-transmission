@@ -28,7 +28,9 @@ export default class DateCards extends React.Component {
           <Card
             key={uuidv4()}
             dateInfo={dateInfo}
-            setActiveDateCard={setActiveDateCard}>
+            setActiveDateCard={setActiveDateCard}
+            activeStat={this.props.activeStat}
+            activeMonth={this.props.activeMonth}>
           </Card>
         )
       })
