@@ -65,7 +65,7 @@ export default class DateCard extends React.Component {
             fill
             onSelect={this.handleSelect}
             variant='pills'
-            defaultActiveKey="#tests">
+            activeKey={this.state.activeTab || "#tests"}>
             <Nav.Item>
               <Nav.Link
                 href="#tests">
@@ -92,16 +92,17 @@ export default class DateCard extends React.Component {
         </Card.Body>
       </Card>
     )
-    // return (
-    //   <div className="date-card" onClick={this.handleClick}>
-    //     <h2>{`Date: ${this.formatDate()}`}</h2>
-    //     <p>{`New  Tests: ${newTests}`}</p>
-    //     <p>{`New Cases: ${newPositives}`}</p>
-    //     <p>{`Total Cases: ${totalPositives}`}</p>
-    //     <p>{`New Deaths: ${newDeaths}`}</p>
-    //     <p>{`Total Deaths: ${totalDeaths}`}</p>
-    //   </div>
-    // )
   }
 
+  componentDidMount() {
+    if (!this.props.activeStat) return
+    const codeToStat = {
+      '2.1': '#tests',
+      '2.2': '#cases',
+      '2.3': '#deaths'
+    }
+    this.setState({
+      activeTab: codeToStat[this.props.activeStat]
+    })
+  }
 }
