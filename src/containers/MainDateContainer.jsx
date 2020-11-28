@@ -9,25 +9,25 @@ export default class MainDateContainer extends React.Component {
 
   state = {
     dateInfo: null,
-    activeMonth: null,
+    activeMonth: '1.3',
     activeStat: null,
-    months: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ]
+    months: {
+      "1.1": '01',
+      "1.2": '02',
+      "1.3": '03',
+      "1.4": '04',
+      "1.5": '05',
+      "1.6": '06',
+      "1.7": '07',
+      "1.8": '08',
+      "1.9": '09',
+      "1.10": '10',
+      "1.11": '11',
+      "1.12": '12'
+    }
   }
 
-  setActiveStat = (stat) => {
+  setActive = (stat) => {
     if (stat.toString().slice(0,1) === '1') {
       this.setState({
         activeMonth: stat
@@ -35,6 +35,24 @@ export default class MainDateContainer extends React.Component {
     } else if (stat.toString().slice(0,1) === '2') {
       this.setState({
         activeStat: stat
+      })
+    }
+  }
+
+  getActiveMonth = (monthCode=null) => {
+    if (!monthCode) return
+    return this.state.months[monthCode]
+  }
+
+
+  passMonths = (month=null) => {
+    if (!this.state.dateInfo) return
+    if (!month) {
+      return this.state.dateInfo
+    } else {
+      return this.state.dateInfo.filter(info => {
+        const monthDigit = info.date.slice(4, 6)
+        return monthDigit === month
       })
     }
   }
@@ -55,10 +73,10 @@ export default class MainDateContainer extends React.Component {
           card={this.state.activeCard}
           activeStat={this.state.activeStat}
           activeMonth={this.state.activeMonth}
-          setActiveStat={this.setActiveStat}>
+          setActive={this.setActive}>
         </DateCardNav>
         <DateCards
-          dateInfo={this.state.dateInfo}
+          dateInfo={this.passMonths(this.getActiveMonth(this.state.activeMonth))}
           activeStat={this.state.activeStat}
           activeMonth={this.state.activeMonth}>
         </DateCards>
