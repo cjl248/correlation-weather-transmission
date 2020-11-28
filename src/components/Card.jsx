@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav'
 export default class DateCard extends React.Component {
 
   state = {
-    activeTab: "#tests",
+    activeStat: "#tests",
   }
 
 
@@ -23,7 +23,7 @@ export default class DateCard extends React.Component {
 
   handleSelect = (eventKey) => {
     this.setState({
-      activeTab: eventKey.toString()
+      activeStat: eventKey.toString()
     })
   }
 
@@ -35,18 +35,18 @@ export default class DateCard extends React.Component {
       newDeaths,
       totalDeaths,
     } = this.props.dateInfo
-    if (this.state.activeTab === "#tests") {
+    if (this.state.activeStat === "#tests") {
       return (
         <span>{`New Tests: ${newTests}`}</span>
       )
-    } else if (this.state.activeTab === "#cases") {
+    } else if (this.state.activeStat === "#cases") {
       return (
         <>
           <span>{`New Cases: ${newPositives}`}</span>
           <span>{`Total Cases: ${totalPositives}`}</span>
         </>
       )
-    } else if (this.state.activeTab === "#deaths") {
+    } else if (this.state.activeStat === "#deaths") {
       return (
         <>
           <span>{`New Deaths: ${newDeaths}`}</span>
@@ -65,7 +65,7 @@ export default class DateCard extends React.Component {
             fill
             onSelect={this.handleSelect}
             variant='pills'
-            activeKey={this.state.activeTab || "#tests"}>
+            activeKey={this.state.activeStat || "#tests"}>
             <Nav.Item>
               <Nav.Link
                 href="#tests">
@@ -96,13 +96,14 @@ export default class DateCard extends React.Component {
 
   componentDidMount() {
     if (!this.props.activeStat) return
+
     const codeToStat = {
       '2.1': '#tests',
       '2.2': '#cases',
       '2.3': '#deaths'
     }
     this.setState({
-      activeTab: codeToStat[this.props.activeStat]
+      activeStat: codeToStat[this.props.activeStat]
     })
   }
 }

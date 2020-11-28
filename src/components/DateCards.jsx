@@ -6,7 +6,7 @@ export default class DateCards extends React.Component {
 
   renderDateInfo = () => {
     const { dateInfo, setActiveDateCard } = this.props
-    if (dateInfo) {
+    if (dateInfo && dateInfo.length !== 0 ) {
       return dateInfo.map((date, array) => {
         const newTests = date.new_tests
         const currentDate = date.date
@@ -14,7 +14,6 @@ export default class DateCards extends React.Component {
         const totalPositives = date.total_positives
         const newDeaths = date.new_deaths
         const totalDeaths = date.total_deaths
-
         const dateInfo = {
           newTests,
           currentDate,
@@ -23,7 +22,6 @@ export default class DateCards extends React.Component {
           newDeaths,
           totalDeaths
         }
-
         return (
           <Card
             key={uuidv4()}
@@ -34,6 +32,10 @@ export default class DateCards extends React.Component {
           </Card>
         )
       })
+    } else if (!dateInfo) {
+      return ( <div>{`Loading...`}</div> )
+    } else  {
+      return (<div>{`No data for selected month...`}</div>)
     }
   }
 
